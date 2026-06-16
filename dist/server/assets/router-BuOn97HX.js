@@ -2,12 +2,10 @@ import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 import { createRootRouteWithContext, useRouter, Link, Outlet, HeadContent, Scripts, createFileRoute, lazyRouteComponent, createRouter } from "@tanstack/react-router";
 import { jsx, jsxs } from "react/jsx-runtime";
 import { useEffect } from "react";
-const appCss = "/assets/styles-C0tZkET8.css";
+const appCss = "/assets/styles-BSIGhAJV.css";
 function reportLovableError(error, context = {}) {
-  var _a, _b;
   if (typeof window === "undefined") return;
-  (_b = (_a = window.__lovableEvents) == null ? void 0 : _a.captureException) == null ? void 0 : _b.call(
-    _a,
+  window.__lovableEvents?.captureException?.(
     error,
     {
       source: "react_error_boundary",
@@ -115,7 +113,7 @@ function RootComponent() {
   const { queryClient } = Route$2.useRouteContext();
   return /* @__PURE__ */ jsx(QueryClientProvider, { client: queryClient, children: /* @__PURE__ */ jsx(Outlet, {}) });
 }
-const $$splitComponentImporter$1 = () => import("./programs-xwH-4qws.js");
+const $$splitComponentImporter$1 = () => import("./programs-Dzrc4YjY.js");
 const Route$1 = createFileRoute("/programs")({
   head: () => ({
     meta: [{
@@ -127,7 +125,7 @@ const Route$1 = createFileRoute("/programs")({
   }),
   component: lazyRouteComponent($$splitComponentImporter$1, "component")
 });
-const $$splitComponentImporter = () => import("./index-DfwM9XzI.js");
+const $$splitComponentImporter = () => import("./index-UPhDEJfW.js");
 const Route = createFileRoute("/")({
   head: () => ({
     meta: [{

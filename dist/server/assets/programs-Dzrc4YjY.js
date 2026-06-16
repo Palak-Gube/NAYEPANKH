@@ -1,32 +1,27 @@
 import { jsx, jsxs } from "react/jsx-runtime";
 import { Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import { p as pEdu, a as pFood, b as pWomen, c as pEnv } from "./program-env-D76AvRgW.js";
 const PROGRAM_BLOCKS = [{
   key: "education",
   title: "Education",
-  image: pEdu,
   stat: "1,500+ learners",
   blurb: "Community classrooms, scholarships, and after-school support so first-generation learners don’t have to drop out.",
   bullets: ["Bridge classes for children out of school", "Scholarships for secondary and college education", "Mentoring circles with volunteers and alumni"]
 }, {
   key: "food",
   title: "Food Security",
-  image: pFood,
   stat: "250,000+ meals",
   blurb: "From crisis relief to everyday nutrition, our kitchens and ration drives keep families from slipping into hunger.",
   bullets: ["Hot meal camps around construction sites and slums", "Monthly ration kits for high‑risk households", "Nutrition awareness sessions with mothers"]
 }, {
   key: "women",
   title: "Women Empowerment",
-  image: pWomen,
   stat: "600+ women",
   blurb: "Skills, livelihoods and safe peer spaces so women can earn, lead, and shape decisions at home and in the community.",
   bullets: ["Self‑help groups and savings circles", "Tailoring, crafts and digital literacy trainings", "Legal and financial awareness sessions"]
 }, {
   key: "environment",
   title: "Environment",
-  image: pEnv,
   stat: "40+ neighbourhoods",
   blurb: "Climate education, clean‑up drives and tree plantations that put children and youth at the heart of local action.",
   bullets: ["Tree drives with schools and RWAs", "Lake & street clean‑ups with volunteers", "Workshops on waste segregation and climate"]
@@ -90,7 +85,7 @@ function ProgramsPage() {
         /* @__PURE__ */ jsx("p", { className: "mt-4 text-xs text-ivory/70", children: "You can support a single program or back our entire ecosystem — either way, your contribution strengthens the same communities." })
       ] })
     ] }),
-    /* @__PURE__ */ jsx("section", { className: "mt-4 space-y-8", children: PROGRAM_BLOCKS.map((p, idx) => /* @__PURE__ */ jsxs(motion.article, { initial: {
+    /* @__PURE__ */ jsx("section", { className: "mt-4 space-y-8", children: PROGRAM_BLOCKS.map((p, idx) => /* @__PURE__ */ jsx(motion.article, { initial: {
       opacity: 0,
       y: 24
     }, whileInView: {
@@ -102,32 +97,21 @@ function ProgramsPage() {
     }, transition: {
       duration: 0.7,
       delay: idx * 0.05
-    }, className: "grid gap-6 rounded-3xl border border-white/10 bg-card/70 p-6 backdrop-blur md:grid-cols-[minmax(0,1.1fr),minmax(0,1fr)]", children: [
-      /* @__PURE__ */ jsxs("div", { className: "relative overflow-hidden rounded-2xl", children: [
-        /* @__PURE__ */ jsx(motion.img, { src: p.image, alt: p.title, loading: "lazy", className: "h-full w-full object-cover", whileHover: {
-          scale: 1.04
-        }, transition: {
-          duration: 0.7,
-          ease: "easeOut"
-        } }),
-        /* @__PURE__ */ jsx("div", { className: "pointer-events-none absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" }),
-        /* @__PURE__ */ jsx("div", { className: "pointer-events-none absolute bottom-4 left-4 rounded-full bg-black/40 px-3 py-1 text-[11px] uppercase tracking-[0.25em] text-ivory/80 backdrop-blur", children: p.stat })
+    }, className: "rounded-3xl border border-white/10 bg-card/70 p-6 backdrop-blur", children: /* @__PURE__ */ jsxs("div", { className: "flex flex-col justify-between gap-4", children: [
+      /* @__PURE__ */ jsxs("header", { children: [
+        /* @__PURE__ */ jsx("div", { className: "mb-3 inline-flex rounded-full border border-saffron/30 bg-saffron/10 px-3 py-1 text-[11px] uppercase tracking-[0.25em] text-saffron-glow", children: p.stat }),
+        /* @__PURE__ */ jsx("h2", { className: "font-display text-2xl text-ivory", children: p.title }),
+        /* @__PURE__ */ jsx("p", { className: "mt-3 text-sm text-ivory/80", children: p.blurb })
       ] }),
-      /* @__PURE__ */ jsxs("div", { className: "flex flex-col justify-between gap-4", children: [
-        /* @__PURE__ */ jsxs("header", { children: [
-          /* @__PURE__ */ jsx("h2", { className: "font-display text-2xl text-ivory", children: p.title }),
-          /* @__PURE__ */ jsx("p", { className: "mt-3 text-sm text-ivory/80", children: p.blurb })
-        ] }),
-        /* @__PURE__ */ jsx("ul", { className: "space-y-2 text-sm text-ivory/80", children: p.bullets.map((b) => /* @__PURE__ */ jsxs("li", { className: "flex gap-2", children: [
-          /* @__PURE__ */ jsx("span", { className: "mt-[5px] h-1.5 w-1.5 rounded-full bg-saffron" }),
-          /* @__PURE__ */ jsx("span", { children: b })
-        ] }, b)) }),
-        /* @__PURE__ */ jsxs("div", { className: "mt-2 flex flex-wrap gap-3", children: [
-          /* @__PURE__ */ jsx("a", { href: "#join", className: "inline-flex items-center gap-2 rounded-full bg-saffron px-4 py-2 text-xs font-medium text-[var(--teal-deep)] shadow-sm transition hover:bg-saffron-glow", children: "I want to support this" }),
-          /* @__PURE__ */ jsx("a", { href: "#top", className: "inline-flex items-center gap-2 rounded-full border border-ivory/25 px-4 py-2 text-xs font-medium text-ivory/75 transition hover:border-saffron hover:text-saffron", children: "Read stories from the journey" })
-        ] })
+      /* @__PURE__ */ jsx("ul", { className: "space-y-2 text-sm text-ivory/80", children: p.bullets.map((b) => /* @__PURE__ */ jsxs("li", { className: "flex gap-2", children: [
+        /* @__PURE__ */ jsx("span", { className: "mt-[5px] h-1.5 w-1.5 rounded-full bg-saffron" }),
+        /* @__PURE__ */ jsx("span", { children: b })
+      ] }, b)) }),
+      /* @__PURE__ */ jsxs("div", { className: "mt-2 flex flex-wrap gap-3", children: [
+        /* @__PURE__ */ jsx("a", { href: "#join", className: "inline-flex items-center gap-2 rounded-full bg-saffron px-4 py-2 text-xs font-medium text-[var(--teal-deep)] shadow-sm transition hover:bg-saffron-glow", children: "I want to support this" }),
+        /* @__PURE__ */ jsx("a", { href: "#top", className: "inline-flex items-center gap-2 rounded-full border border-ivory/25 px-4 py-2 text-xs font-medium text-ivory/75 transition hover:border-saffron hover:text-saffron", children: "Read stories from the journey" })
       ] })
-    ] }, p.key)) })
+    ] }) }, p.key)) })
   ] }) });
 }
 export {
