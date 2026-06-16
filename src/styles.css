@@ -1,0 +1,122 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-saffron: var(--saffron);
+  --color-saffron-glow: var(--saffron-glow);
+  --color-teal-deep: var(--teal-deep);
+  --color-ivory: var(--ivory);
+  --color-rose: var(--rose);
+
+  --font-display: "Fraunces", "Cormorant Garamond", serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+
+  --shadow-glow: 0 0 80px -10px color-mix(in oklab, var(--saffron) 50%, transparent);
+  --shadow-card: 0 30px 60px -30px oklch(0 0 0 / 0.6);
+}
+
+:root {
+  --radius: 1rem;
+
+  /* Brighter teal canvas, stronger saffron + rose accents, high-contrast ivory */
+  --background: oklch(0.22 0.05 200);
+  --foreground: oklch(0.98 0.02 95);
+
+  --teal-deep: oklch(0.18 0.06 210);
+  --ivory: oklch(0.98 0.02 95);
+  --saffron: oklch(0.82 0.19 65);
+  --saffron-glow: oklch(0.9 0.19 75);
+  --rose: oklch(0.72 0.18 25);
+
+  --card: oklch(0.27 0.05 205);
+  --card-foreground: oklch(0.98 0.02 95);
+  --popover: oklch(0.27 0.05 205);
+  --popover-foreground: oklch(0.98 0.02 95);
+
+  --primary: oklch(0.82 0.19 65);
+  --primary-foreground: oklch(0.18 0.06 210);
+  --secondary: oklch(0.32 0.05 205);
+  --secondary-foreground: oklch(0.98 0.02 95);
+  --muted: oklch(0.3 0.03 205);
+  --muted-foreground: oklch(0.8 0.02 90);
+  --accent: oklch(0.72 0.18 25);
+  --accent-foreground: oklch(0.98 0.02 95);
+  --destructive: oklch(0.62 0.22 27);
+  --destructive-foreground: oklch(0.99 0.005 95);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 16%);
+  --ring: oklch(0.82 0.19 65);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html, body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  body {
+    background-image:
+      radial-gradient(ellipse 80% 60% at 50% -10%, color-mix(in oklab, var(--saffron) 14%, transparent), transparent 60%),
+      radial-gradient(ellipse 60% 50% at 80% 110%, color-mix(in oklab, var(--rose) 12%, transparent), transparent 60%);
+  }
+  h1, h2, h3, h4 { font-family: var(--font-display); letter-spacing: -0.02em; }
+  ::selection { background: var(--saffron); color: var(--teal-deep); }
+}
+
+@utility text-balance { text-wrap: balance; }
+
+@utility glow-ring {
+  box-shadow:
+    0 0 0 1px color-mix(in oklab, var(--saffron) 30%, transparent),
+    0 0 60px -10px color-mix(in oklab, var(--saffron) 60%, transparent);
+}
+
+@keyframes drift {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-12px); }
+}
+@keyframes shimmer-sweep {
+  0% { transform: translateX(-120%); }
+  100% { transform: translateX(120%); }
+}
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.15); }
+}
+
+@utility animate-drift { animation: drift 6s ease-in-out infinite; }
+@utility animate-pulse-glow { animation: pulse-glow 2.4s ease-in-out infinite; }
