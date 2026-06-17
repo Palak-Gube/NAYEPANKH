@@ -100,7 +100,11 @@ function Nav({ visible }: { visible: boolean }) {
         </a>
         <nav className="hidden items-center gap-7 text-sm text-ivory/80 md:flex">
           {items.map((i) => (
-            <a key={i} href={`#${i.toLowerCase()}`} className="transition hover:text-saffron">
+            <a
+              key={i}
+              href={i === "Programs" ? "/programs" : `#${i.toLowerCase()}`}
+              className="transition hover:text-saffron"
+            >
               {i}
             </a>
           ))}

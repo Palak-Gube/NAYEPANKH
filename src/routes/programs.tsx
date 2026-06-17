@@ -179,13 +179,13 @@ function ProgramsPage() {
                 </ul>
                 <div className="mt-2 flex flex-wrap gap-3">
                   <a
-                    href="#join"
+                    href="/#join"
                     className="inline-flex items-center gap-2 rounded-full bg-saffron px-4 py-2 text-xs font-medium text-[var(--teal-deep)] shadow-sm transition hover:bg-saffron-glow"
                   >
                     I want to support this
                   </a>
                   <a
-                    href="#top"
+                    href="/#voices"
                     className="inline-flex items-center gap-2 rounded-full border border-ivory/25 px-4 py-2 text-xs font-medium text-ivory/75 transition hover:border-saffron hover:text-saffron"
                   >
                     Read stories from the journey
